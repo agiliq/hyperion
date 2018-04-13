@@ -1,0 +1,50 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+html body {
+  margin-bottom: 60px;
+}
+html #footer {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  height: 60px;
+  background-color: #b1acac;
+}
+html #footer .footer-block {
+  margin: 20px 0;
+}
+li {
+  list-style: none;
+}
+.navbar{
+  background: #b1acac;
+}
+.navbar-brand {
+  text-transform: uppercase;
+  display: inline-block;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  margin-right: 1rem;
+  font-size: 2rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+.navbar-brand a{
+  color: #FFEB3B;
+}
+
+/* flashes*/
+.flashes{
+  border: 1px solid #ced4da;
+  border-radius: 3%;
+  color: green;
+}
+/*end*/
+
+/* watcher page*/
+div#id_watcher_form {
+    padding: 5% !important;
+}
+/*end*/

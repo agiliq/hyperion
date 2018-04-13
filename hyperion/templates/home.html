@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <title>Hyperion - Watch your sites, get notified whene there is a problem</title>
+</head>
+
+<body>
+    <!-- content -->
+    <!--[ header ] -->
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Hyperion</a>
+            </div>
+        </div>
+    </div>
+    <!--[ container ] -->
+    <div id="id_watcher_form">
+    	<div class="container col-md-6 offset-md-3">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+		<h3>Setup URL Watcher</h3>
+        <form action="" method="POST">
+            {{ form.csrf_token }}
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Email</label>
+                <div class="col-sm-9">
+                    {{ form.email(
+                        class="form-control form-control-sm",
+                        placeholder="hello@agiliq.com"
+                    )}}
+                    {% for error in form.email.errors %}
+                      <li class="error">{{ error }}</li>
+                    {% endfor %}
+                </div>
+             </div>
+             <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Url</label>
+                <div class="col-sm-9">
+                    {{form.url(
+                        class="form-control form-control-sm",
+                        placeholder="https://www.agiliq.com/"
+                    )}}
+                    {% for error in form.url.errors %}
+                      <li class="error">{{ error }}</li>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Status Code</label>
+                <div class="col-sm-9">
+                    {{form.status_code(
+                        class="form-control form-control-sm",
+                        placeholder="200"
+                    )}}
+                    {% for error in form.status_code.errors %}
+                      <li class="error">{{ error }}</li>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Run Every </label>
+                <div class="col-sm-9">
+                    {{form.run_freq(
+                        class="form-control form-control-sm",
+                    )}}
+                    {% for error in form.run_freq.errors %}
+                      <li class="error">{{ error }}</li>
+                    {% endfor %}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+    </div>
+    </div>
+    <!--[ footer ] -->
+    <div id="footer">
+        <div class="container">
+            <p class="footer-block"><a href="https://www.agiliq.com/">Developed by Agiliq Info Solutions</a></p>
+        </div>
+    </div>
+    <!-- end -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</body>
+
+</html>
